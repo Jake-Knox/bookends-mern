@@ -7,4 +7,12 @@ client/node_modules/
 # Ignore server/node_modules
 server/node_modules/
 
+# Ignore server/config
 server/config.env
+
+# Ignore logs and other temporary files
+*.log
+*.tmp
+
+# Ignore environment files
+.env
