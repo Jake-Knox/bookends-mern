@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+
 const Record = (props) => (
     <tr>
         <td>{props.record.name}</td>
@@ -17,6 +19,8 @@ const Record = (props) => (
         </td>
     </tr>
 );
+
+
 export default function RecordList() {
     const [records, setRecords] = useState([]);
     // This method fetches the records from the database.

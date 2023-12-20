@@ -27,7 +27,7 @@ recordRoutes.route("/record").get(async function (req, res) {
 recordRoutes.route("/record/:id").get(async function (req, res) {
     try {
         const db_connect = await dbo.getDb("employees");
-        const myquery = { _id: ObjectId(req.params.id) };
+        const myquery = { _id: new ObjectId(req.params.id) };
         const result = await db_connect.collection("records").findOne(myquery);
         res.json(result);
     } catch (err) {
@@ -55,7 +55,7 @@ recordRoutes.route("/record/add").post(async function (req, response) {
 recordRoutes.route("/update/:id").post(async function (req, response) {
     try {
         const db_connect = await dbo.getDb("employees");
-        const myquery = { _id: ObjectId(req.params.id) };
+        const myquery = { _id: new ObjectId(req.params.id) };
         const newvalues = {
             $set: {
                 name: req.body.name,
@@ -75,7 +75,7 @@ recordRoutes.route("/update/:id").post(async function (req, response) {
 recordRoutes.route("/:id").delete(async (req, response) => {
     try {
         const db_connect = await dbo.getDb("employees");
-        const myquery = { _id: ObjectId(req.params.id) };
+        const myquery = { _id: new ObjectId(req.params.id) };
         const obj = await db_connect.collection("records").deleteOne(myquery);
         console.log("1 document deleted");
         response.json(obj);
